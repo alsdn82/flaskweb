@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <title>회원 가입</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/checkmember.js') }}"></script>
 </head>
 <body>
     <div id="container">
         {%  include 'navbar.html'  %}
         <section>
-           <h2>회원 가입</h2>
-           <form action="{{ url_for('register') }}" method="post" class="join">
+            <h2>회원 가입</h2>
+           <form action="{{ url_for('register') }}" method="post" class="join" name="regForm">
                <fieldset>
                    <ul>
                        <li>
@@ -23,13 +24,13 @@
                        </li>
                        <li>
                            <label for="passwd2">비밀번호 확인</label>
-                           <input type="password" id="passwd2" name="passwd">
+                           <input type="password" id="passwd2" name="passwd_confirm">
                        </li>
                         <li>
                            <label for="name">이름 </label>
                            <input type="text" id="name" name="name">
                        </li>
-                        <li>
+                       <li>
                            <label for="age">나이 </label>
                            <input type="text" id="age" name="age">
                        </li>
@@ -38,7 +39,7 @@
                            <input type="date" id="reg_date" name="reg_date">
                        </li>
                        <li>
-                            <input type="submit" value="전송">
+                            <input type="button" value="전송" onclick="checkMember()">
                             <input type="reset" value="취소">
                        </li>
                    </ul>
